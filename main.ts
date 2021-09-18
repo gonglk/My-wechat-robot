@@ -201,6 +201,8 @@ const bot = new Wechaty({
         const roomList_zhaopin_5 = await bot.Room.find({id:"2460142747@chatroom"});
         const roomList_zhaopin_6 = await bot.Room.find({id:"66473393@chatroom"});
         const roomList_zhaopin_7 = await bot.Room.find({id:"27850016342@chatroom"});
+        const roomList_zhaopin_9 = await bot.Room.find({id:"1851375@chatroom"});
+        const roomList_zhaopin_10 = await bot.Room.find({id:"2023991387@chatroom"});
         const roomList_pinche_1 = await bot.Room.find({id:"2464136516@chatroom"});
         const roomList_pinche_2 = await bot.Room.find({id:"6099969813@chatroom"});
         const roomList_pinche_3 = await bot.Room.find({id:"24243661065@chatroom"});
@@ -235,6 +237,13 @@ const bot = new Wechaty({
         const roomList_ershou_10 = await bot.Room.find({id:"2466137732@chatroom"});
         const roomList_ershou_11 = await bot.Room.find({id:"410449686@chatroom"});
         const roomList_ershou_12 = await bot.Room.find({id:"380466188@chatroom"});
+        const roomList_ershou_13 = await bot.Room.find({id:"458461698@chatroom"});
+        const roomList_ershou_14 = await bot.Room.find({id:"2456428381@chatroom"});
+        const roomList_ershou_15 = await bot.Room.find({id:"6144149879@chatroom"});
+        const roomList_ershou_16 = await bot.Room.find({id:"27574307387@chatroom"});
+        const roomList_ershou_17 = await bot.Room.find({id:"389461788@chatroom"});
+        const roomList_ershou_18 = await bot.Room.find({id:"6116174110@chatroom"});
+        const roomList_ershou_19 = await bot.Room.find({id:"6144120364@chatroom"});
         const roomList_busi = await bot.Room.find({id:"437456196@chatroom"});
         const roomList_busi_2 = await bot.Room.find({id:"5914194113@chatroom"});
         const roomList_exchange_1 = await bot.Room.find({id:"2432465130@chatroom"});
@@ -246,6 +255,8 @@ const bot = new Wechaty({
         const roomList_car_4 = await bot.Room.find({id:"6147029778@chatroom"});
         const roomList_car_5 = await bot.Room.find({id:"6107174197@chatroom"});
         const roomList_test = await bot.Room.find({id:"27257909530@chatroom"})
+        const michael = await bot.Contact.find({id:"wxid_7936779368011"})
+        const joe = await bot.Contact.find({id:"wxid_jacyja82kvyn22"})
 
 
         await new Promise(r => setTimeout(r, 5000))
@@ -282,7 +293,7 @@ const bot = new Wechaty({
              if(old_data_zhaopin.id != res.message[0].id){
                 old_data_zhaopin = res.message[0];
                 let clean_zhaopin = res.message[0].content.replace(res.message[0].weixin, " ").replace(res.message[0].tel, " ").replace(/(\(+61\)|\+61|\(0[1-9]\)|0[1-9])?( ?-?[0-9]){6,9}/, '').replace("<br>", "\n")
-                roommsg_zhaopin = `【${res.message[0].title}】 \n ${clean_zhaopin} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/1/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
+                // roommsg_zhaopin = `【${res.message[0].title}】 \n ${clean_zhaopin} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/1/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
                 const urlLink_zhaopin = new UrlLink({
                     title: res.message[0].title,
                     description: clean_zhaopin,
@@ -298,6 +309,8 @@ const bot = new Wechaty({
                 await roomList_zhaopin_5.say(urlLink_zhaopin)
                 await roomList_zhaopin_6.say(urlLink_zhaopin)
                 await roomList_zhaopin_7.say(urlLink_zhaopin)
+                await roomList_zhaopin_9.say(urlLink_zhaopin)
+                await roomList_zhaopin_10.say(urlLink_zhaopin)
               }
           
               else if(old_data_zhaopin.id == res.message[0].id){
@@ -335,7 +348,7 @@ const bot = new Wechaty({
              if(old_data_zulin.id != res.message[0].id){
                 old_data_zulin = res.message[0];
                 let clean_zulin = res.message[0].content.replace(res.message[0].weixin, " ").replace(res.message[0].tel, " ").replace(/(\(+61\)|\+61|\(0[1-9]\)|0[1-9])?( ?-?[0-9]){6,9}/, '').replace("<br>", "\n")
-                roommsg_zulin = `【${res.message[0].title}】 \n ${clean_zulin} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/2/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
+                // roommsg_zulin = `【${res.message[0].title}】 \n ${clean_zulin} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/2/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
                 const urlLink_zulin = new UrlLink({
                     title: res.message[0].title,
                     description: clean_zulin,
@@ -483,7 +496,7 @@ const bot = new Wechaty({
              if(old_data_busi.id != res.message[0].id){
                 old_data_busi = res.message[0];
                 let clean_busi = res.message[0].content.replace(res.message[0].weixin, " ").replace(res.message[0].tel, " ").replace(/(\(+61\)|\+61|\(0[1-9]\)|0[1-9])?( ?-?[0-9]){6,9}/, '').replace("<br>", "\n")
-                roommsg_busi = `【${res.message[0].title}】 \n ${clean_busi} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/10/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
+                // roommsg_busi = `【${res.message[0].title}】 \n ${clean_busi} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/10/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
                 const urlLink_busi = new UrlLink({
                     title: res.message[0].title,
                     description: clean_busi,
@@ -530,7 +543,7 @@ const bot = new Wechaty({
              if(old_data_pinche.id != res.message[0].id){
                 old_data_pinche = res.message[0];
                 let clean_pinche = res.message[0].content.replace(res.message[0].weixin, " ").replace(res.message[0].tel, " ").replace(/(\(+61\)|\+61|\(0[1-9]\)|0[1-9])?( ?-?[0-9]){6,9}/, '').replace("<br>", "\n")
-                roommsg_pinche = `【${res.message[0].title}】 \n ${clean_pinche} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/5/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
+                // roommsg_pinche = `【${res.message[0].title}】 \n ${clean_pinche} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/5/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
                 const urlLink_pinche = new UrlLink({
                     title: res.message[0].main_type_name,
                     description: clean_pinche,
@@ -579,26 +592,33 @@ const bot = new Wechaty({
              if(old_data_ershou.id != res.message[0].id){
                 old_data_ershou = res.message[0];
                 let clean_ershou = res.message[0].content.replace(res.message[0].weixin, " ").replace(res.message[0].tel, " ").replace(/(\(+61\)|\+61|\(0[1-9]\)|0[1-9])?( ?-?[0-9]){6,9}/, '').replace("<br>", "\n")
-                roommsg_ershou = `【${res.message[0].title}】 \n ${clean_ershou} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/6/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
+                // roommsg_ershou = `【${res.message[0].title}】 \n ${clean_ershou} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/6/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
                 const urlLink_ershou = new UrlLink({
                     title: res.message[0].title,
                     description: clean_ershou,
                     thumbnailUrl: res.message[0].headnav,
                     url: `https://www.canberraport.com/#!/details/${res.message[0].id}/6/cbrlife`,
                   });
-                await new Promise(r => setTimeout(r, 2000))
-                await roomList_ershou_1.say(urlLink_ershou)
-                await roomList_ershou_2.say(urlLink_ershou)
-                await roomList_ershou_3.say(urlLink_ershou)
-                await roomList_ershou_4.say(urlLink_ershou)
-                await roomList_ershou_5.say(urlLink_ershou)
-                await roomList_ershou_6.say(urlLink_ershou)
-                await roomList_ershou_7.say(urlLink_ershou)
-                await roomList_ershou_8.say(urlLink_ershou)
-                await roomList_ershou_9.say(urlLink_ershou)
-                await roomList_ershou_10.say(urlLink_ershou)
-                await roomList_ershou_11.say(urlLink_ershou)
-                await roomList_ershou_12.say(urlLink_ershou)
+                // await new Promise(r => setTimeout(r, 2000))
+                // await roomList_ershou_1.say(urlLink_ershou)
+                // await roomList_ershou_2.say(urlLink_ershou)
+                // await roomList_ershou_3.say(urlLink_ershou)
+                // await roomList_ershou_4.say(urlLink_ershou)
+                // await roomList_ershou_5.say(urlLink_ershou)
+                // await roomList_ershou_6.say(urlLink_ershou)
+                // await roomList_ershou_7.say(urlLink_ershou)
+                // await roomList_ershou_8.say(urlLink_ershou)
+                // await roomList_ershou_9.say(urlLink_ershou)
+                // await roomList_ershou_10.say(urlLink_ershou)
+                // await roomList_ershou_11.say(urlLink_ershou)
+                // await roomList_ershou_12.say(urlLink_ershou)
+                // await roomList_ershou_13.say(urlLink_ershou)
+                // await roomList_ershou_14.say(urlLink_ershou)
+                // await roomList_ershou_15.say(urlLink_ershou)
+                // await roomList_ershou_16.say(urlLink_ershou)
+                // await roomList_ershou_17.say(urlLink_ershou)
+                // await roomList_ershou_18.say(urlLink_ershou)
+                // await roomList_ershou_19.say(urlLink_ershou)
               }
           
               else if(old_data_ershou.id == res.message[0].id){
@@ -636,7 +656,7 @@ const bot = new Wechaty({
              if(old_data_exchange.id != res.message[0].id){
                 old_data_exchange = res.message[0];
                 let clean_exchange = res.message[0].content.replace(res.message[0].weixin, " ").replace(res.message[0].tel, " ").replace(/(\(+61\)|\+61|\(0[1-9]\)|0[1-9])?( ?-?[0-9]){6,9}/, '').replace("<br>", "\n")
-                roommsg_ershou = `【${res.message[0].title}】 \n ${clean_exchange} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/7/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
+                // roommsg_ershou = `【${res.message[0].title}】 \n ${clean_exchange} \n \n 获取联系方式： https://www.canberraport.com/#!/details/${res.message[0].id}/7/cbrlife \n \n 在CBRLife APP（安卓&IOS) 上发帖会被同时转发到多个本地群和朋友圈哦，堪培拉本地华人都能看到`;
                 const urlLink_exchange = new UrlLink({
                     title: res.message[0].title,
                     description: clean_exchange,
@@ -692,6 +712,8 @@ const bot = new Wechaty({
                   await roomList_zhaopin_5.say(urlLink_news)
                   await roomList_zhaopin_6.say(urlLink_news)
                   await roomList_zhaopin_7.say(urlLink_news)
+                  await roomList_zhaopin_9.say(urlLink_news)
+                  await roomList_zhaopin_10.say(urlLink_news)
                   await roomList_zulin_1.say(urlLink_news)
                   await roomList_zulin_2.say(urlLink_news)
                   await roomList_zulin_3.say(urlLink_news)
@@ -733,6 +755,13 @@ const bot = new Wechaty({
                   await roomList_ershou_10.say(urlLink_news)
                   await roomList_ershou_11.say(urlLink_news)
                   await roomList_ershou_12.say(urlLink_news)
+                  await roomList_ershou_13.say(urlLink_news)
+                  await roomList_ershou_14.say(urlLink_news)
+                  await roomList_ershou_15.say(urlLink_news)
+                  await roomList_ershou_16.say(urlLink_news)
+                  await roomList_ershou_17.say(urlLink_news)
+                  await roomList_ershou_18.say(urlLink_news)
+                  await roomList_ershou_19.say(urlLink_news)
                   await roomList_exchange_1.say(urlLink_news)
                   await roomList_exchange_3.say(urlLink_news)
                   await roomList_exchange_4.say(urlLink_news)
@@ -760,6 +789,8 @@ const bot = new Wechaty({
         await roomList_zhaopin_5.say(zhaopin_ad)
         await roomList_zhaopin_6.say(zhaopin_ad)
         await roomList_zhaopin_7.say(zhaopin_ad)
+        await roomList_zhaopin_9.say(zhaopin_ad)
+        await roomList_zhaopin_10.say(zhaopin_ad)
         await roomList_zulin_1.say(zulin_ad)
         await roomList_zulin_2.say(zulin_ad)
         await roomList_zulin_3.say(zulin_ad)
@@ -801,6 +832,13 @@ const bot = new Wechaty({
         await roomList_ershou_10.say(ershou_ad)
         await roomList_ershou_11.say(ershou_ad)
         await roomList_ershou_12.say(ershou_ad)
+        await roomList_ershou_13.say(ershou_ad)
+        await roomList_ershou_14.say(ershou_ad)
+        await roomList_ershou_15.say(ershou_ad)
+        await roomList_ershou_16.say(ershou_ad)
+        await roomList_ershou_17.say(ershou_ad)
+        await roomList_ershou_18.say(ershou_ad)
+        await roomList_ershou_19.say(ershou_ad)
         await roomList_exchange_1.say(exchange_ad)
         await roomList_exchange_3.say(exchange_ad)
         await roomList_exchange_4.say(exchange_ad)
@@ -822,7 +860,139 @@ const bot = new Wechaty({
         //     await message.talker().say(message.text().replace("ding", "dong"));
         // }
         // log.info(message.talker().title())
+        const roomList_zhaopin_1 = await bot.Room.find({id:"292451796@chatroom"});
+        const roomList_zhaopin_2 = await bot.Room.find({id:"579490894@chatroom"});
+        const roomList_zhaopin_3 = await bot.Room.find({id:"2446448612@chatroom"});
+        const roomList_zhaopin_4 = await bot.Room.find({id:"22103058466@chatroom"});
+        const roomList_zhaopin_5 = await bot.Room.find({id:"2460142747@chatroom"});
+        const roomList_zhaopin_6 = await bot.Room.find({id:"66473393@chatroom"});
+        const roomList_zhaopin_7 = await bot.Room.find({id:"27850016342@chatroom"});
+        const roomList_zhaopin_9 = await bot.Room.find({id:"1851375@chatroom"});
+        const roomList_zhaopin_10 = await bot.Room.find({id:"2023991387@chatroom"});
+        const roomList_pinche_1 = await bot.Room.find({id:"2464136516@chatroom"});
+        const roomList_pinche_2 = await bot.Room.find({id:"6099969813@chatroom"});
+        const roomList_pinche_3 = await bot.Room.find({id:"24243661065@chatroom"});
+        const roomList_zulin_1 = await bot.Room.find({id:"2470134362@chatroom"});
+        const roomList_zulin_2 = await bot.Room.find({id:"2441201256@chatroom"});
+        const roomList_zulin_3 = await bot.Room.find({id:"2413369543@chatroom"});
+        const roomList_zulin_4 = await bot.Room.find({id:"2474474773@chatroom"});
+        const roomList_zulin_5 = await bot.Room.find({id:"2438412675@chatroom"});
+        const roomList_zulin_6 = await bot.Room.find({id:"4682879193@chatroom"});
+        const roomList_zulin_7 = await bot.Room.find({id:"21541458514@chatroom"});
+        const roomList_zulin_8 = await bot.Room.find({id:"1859999@chatroom"});
+        const roomList_zulin_9 = await bot.Room.find({id:"23012172349@chatroom"});
+        const roomList_zulin_10 = await bot.Room.find({id:"403455290@chatroom"});
+        const roomList_zulin_11 = await bot.Room.find({id:"2474563912@chatroom"});
+        const roomList_zulin_12 = await bot.Room.find({id:"409452497@chatroom"});
+        const roomList_zulin_13 = await bot.Room.find({id:"6267051841@chatroom"});
+        const roomList_zulin_14 = await bot.Room.find({id:"2415144033@chatroom"});
+        const roomList_zulin_15 = await bot.Room.find({id:"2417383708@chatroom"});
+        const roomList_zulin_16 = await bot.Room.find({id:"2412318928@chatroom"});
+        const roomList_zulin_17 = await bot.Room.find({id:"2463144537@chatroom"});
+        const roomList_zulin_18 = await bot.Room.find({id:"2432144983@chatroom"});
+        const roomList_zulin_19 = await bot.Room.find({id:"6249120503@chatroom"});
+        const roomList_ershou_1 = await bot.Room.find({id:"36448088@chatroom"});
+        const roomList_ershou_2 = await bot.Room.find({id:"2421195276@chatroom"});
+        const roomList_ershou_3 = await bot.Room.find({id:"2460382827@chatroom"});
+        const roomList_ershou_4 = await bot.Room.find({id:"2464570441@chatroom"});
+        const roomList_ershou_5 = await bot.Room.find({id:"22246372031@chatroom"});
+        const roomList_ershou_6 = await bot.Room.find({id:"21841881931@chatroom"});
+        const roomList_ershou_7 = await bot.Room.find({id:"344576593@chatroom"});
+        const roomList_ershou_8 = await bot.Room.find({id:"26380107196@chatroom"});
+        const roomList_ershou_9 = await bot.Room.find({id:"2408156750@chatroom"});
+        const roomList_ershou_10 = await bot.Room.find({id:"2466137732@chatroom"});
+        const roomList_ershou_11 = await bot.Room.find({id:"410449686@chatroom"});
+        const roomList_ershou_12 = await bot.Room.find({id:"380466188@chatroom"});
+        const roomList_ershou_13 = await bot.Room.find({id:"458461698@chatroom"});
+        const roomList_ershou_14 = await bot.Room.find({id:"2456428381@chatroom"});
+        const roomList_ershou_15 = await bot.Room.find({id:"6144149879@chatroom"});
+        const roomList_ershou_16 = await bot.Room.find({id:"27574307387@chatroom"});
+        const roomList_ershou_17 = await bot.Room.find({id:"389461788@chatroom"});
+        const roomList_ershou_18 = await bot.Room.find({id:"6116174110@chatroom"});
+        const roomList_ershou_19 = await bot.Room.find({id:"6144120364@chatroom"});
+        const roomList_busi = await bot.Room.find({id:"437456196@chatroom"});
+        const roomList_busi_2 = await bot.Room.find({id:"5914194113@chatroom"});
+        const roomList_exchange_1 = await bot.Room.find({id:"2432465130@chatroom"});
+        const roomList_exchange_3 = await bot.Room.find({id:"23868164749@chatroom"});
+        const roomList_exchange_4 = await bot.Room.find({id:"2431501934@chatroom"});
+        const roomList_car_1 = await bot.Room.find({id:"130452586@chatroom"});
+        const roomList_car_2 = await bot.Room.find({id:"2432426243@chatroom"});
+        const roomList_car_3 = await bot.Room.find({id:"304456996@chatroom"});
+        const roomList_car_4 = await bot.Room.find({id:"6147029778@chatroom"});
+        const roomList_car_5 = await bot.Room.find({id:"6107174197@chatroom"});
+        const roomList_test = await bot.Room.find({id:"27257909530@chatroom"})
+        if((message.talker().id=="wxid_jacyja82kvyn22"||message.talker().id=="wxid_7936779368011"||message.talker().id=="wxid_ceg34625tpm122")&&message.to().self()){
+            await roomList_zhaopin_1.say(message);
+            await roomList_zhaopin_2.say(message);
+            await roomList_zhaopin_3.say(message);
+            await roomList_zhaopin_4.say(message);
+            await roomList_zhaopin_5.say(message);
+            await roomList_zhaopin_6.say(message);
+            await roomList_zhaopin_7.say(message);
+            await roomList_zhaopin_9.say(message);
+            await roomList_zhaopin_10.say(message);
+            await roomList_zulin_1.say(message);
+            await roomList_zulin_2.say(message);
+            await roomList_zulin_3.say(message);
+            await roomList_zulin_4.say(message);
+            await roomList_zulin_5.say(message);
+            await roomList_zulin_6.say(message);
+            await roomList_zulin_7.say(message);
+            await roomList_zulin_8.say(message);
+            await roomList_zulin_9.say(message);
+            await roomList_zulin_10.say(message);
+            await roomList_zulin_11.say(message);
+            await roomList_zulin_12.say(message);
+            await roomList_zulin_13.say(message);
+            await roomList_zulin_14.say(message);
+            await roomList_zulin_15.say(message);
+            await roomList_zulin_16.say(message);
+            await roomList_zulin_17.say(message);
+            await roomList_zulin_18.say(message);
+            await roomList_zulin_19.say(message);
 
+            await new Promise(r => setTimeout(r, 150000));
+
+            await roomList_ershou_1.say(message);
+            await roomList_ershou_2.say(message);
+            await roomList_ershou_3.say(message);
+            await roomList_ershou_4.say(message);
+            await roomList_ershou_5.say(message);
+            await roomList_ershou_6.say(message);
+            await roomList_ershou_7.say(message);
+            await roomList_ershou_8.say(message);
+            await roomList_ershou_9.say(message);
+            await roomList_ershou_10.say(message);
+            await roomList_ershou_11.say(message);
+            await roomList_ershou_12.say(message);
+            await roomList_ershou_13.say(message);
+            await roomList_ershou_14.say(message);
+            await roomList_ershou_15.say(message);
+            await roomList_ershou_16.say(message);
+            await roomList_ershou_17.say(message);
+            await roomList_ershou_18.say(message);
+            await roomList_ershou_19.say(message);
+
+            await new Promise(r => setTimeout(r, 120000));
+
+            await roomList_busi.say(message)
+            await roomList_busi_2.say(message)
+            await roomList_car_1.say(message)
+            await roomList_car_2.say(message)
+            await roomList_car_3.say(message)
+            await roomList_car_4.say(message)
+            await roomList_car_5.say(message)
+            await roomList_pinche_1.say(message)
+            await roomList_pinche_2.say(message)
+
+            await new Promise(r => setTimeout(r, 120000));
+
+            await roomList_pinche_3.say(message)
+            await roomList_exchange_1.say(message)
+            await roomList_exchange_3.say(message)
+            await roomList_exchange_4.say(message)
+            // await roomList_test.say(message)
+        }
     })
 
 
